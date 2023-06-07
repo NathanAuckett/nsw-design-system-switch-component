@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div {
+            display: flex; /*Removes gap under each switch*/
+        }
+        input{
+            margin: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Switches</h1>
+    <h3>Dark:</h3>
+    <div>
+        <input alt="switch" class="nsw-switch nsw-switch--dark" type="checkbox"/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark" type="checkbox" checked/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark" type="checkbox" disabled/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark" type="checkbox" checked disabled/>
+    </div>
+    <h3>Dark Outline:</h3>
+    <div>
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline" type="checkbox"/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline" type="checkbox" checked/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline" type="checkbox" disabled/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline" type="checkbox" checked disabled/>
+    </div>
+    <h3>Dark Outline Solid:</h3>
+    <div style="background-color: var(--nsw-brand-light);">
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline-solid" type="checkbox"/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline-solid" type="checkbox" checked/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline-solid" type="checkbox" disabled/>
+        <input alt="switch" class="nsw-switch nsw-switch--dark-outline-solid" type="checkbox" checked disabled/>
+    </div>
+    <h3>Light:</h3>
+    <div style="background-color: var(--nsw-text-dark);">
+        <input alt="switch" class="nsw-switch nsw-switch--light" type="checkbox"/>
+        <input alt="switch" class="nsw-switch nsw-switch--light" type="checkbox" checked/>
+        <input alt="switch" class="nsw-switch nsw-switch--light" type="checkbox" disabled/>
+        <input alt="switch" class="nsw-switch nsw-switch--light" type="checkbox" checked disabled/>
+    </div>
+    <h3>Light Outline:</h3>
+    <div style="background-color: var(--nsw-text-dark);">
+        <input alt="switch" class="nsw-switch nsw-switch--light-outline" type="checkbox"/>
+        <input alt="switch" class="nsw-switch nsw-switch--light-outline" type="checkbox" checked/>
+        <input alt="switch" class="nsw-switch nsw-switch--light-outline" type="checkbox" disabled/>
+        <input alt="switch" class="nsw-switch nsw-switch--light-outline" type="checkbox" checked disabled/>
+    </div>
+</body>
+</html>

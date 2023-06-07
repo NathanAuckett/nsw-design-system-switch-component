@@ -1,0 +1,106 @@
+$nsw-switches: (
+  dark: (
+    toggle-color: var(--nsw-white),
+    toggle-color-on: var(--nsw-white),
+    background-off: var(--nsw-brand-dark),
+    background-on: var(--nsw-palette-green-02),
+    border: transparent
+  ),
+  dark-outline: (
+    toggle-color: var(--nsw-brand-dark),
+    toggle-color-on: var(--nsw-palette-green-02),
+    background-off: transparent,
+    background-on: transparent,
+    border: var(--nsw-brand-dark)
+  ),
+  dark-outline-solid: (
+    toggle-color: var(--nsw-brand-dark),
+    toggle-color-on: var(--nsw-palette-green-02),
+    background-off: var(--nsw-white),
+    background-on: var(--nsw-white),
+    border: var(--nsw-brand-dark)
+  ),
+  light: (
+    toggle-color: var(--nsw-text-dark),
+    toggle-color-on: var(--nsw-text-light),
+    background-off: var(--nsw-brand-light),
+    background-on: var(--nsw-palette-green-02),
+    border: transparent
+  ),
+  light-outline: (
+    toggle-color: var(--nsw-brand-light),
+    toggle-color-on: var(--nsw-palette-green-02),
+    background-off: transparent,
+    background-on: transparent,
+    border: var(--nsw-brand-light)
+  )
+);
+
+
+.nsw-switch {
+    $switchWidth: 50px;
+    $switchHeight: 27px;
+    $toggleSize: $switchHeight - 9;
+    
+    -webkit-appearance: none;
+    position: relative;
+    width: $switchWidth;
+    height: $switchHeight;
+    border-radius: 50px;
+    border: solid 3px transparent;
+    outline: none;
+    background-color: var(--nsw-brand-dark);
+    transition: background .2s;
+    cursor: pointer;
+
+    &:after { //The toggle
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 32%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        height: $toggleSize;
+        width: $toggleSize;
+        background-color: var(--nsw-white);
+        transition: left .2s;
+    }
+
+    &:checked::after {
+        left: 68%;
+    }
+
+    &:disabled{
+        opacity: .4;
+        cursor: not-allowed;
+
+        &::after {
+            opacity: 50%;
+        }
+    }
+
+    &:focus {
+        @include nsw-focus;
+    }
+}
+
+.nsw-switch {
+    @each $color, $property-map in $nsw-switches {
+        &--#{"" + $color} {
+            background-color: map-get($property-map, background-off);
+            border-color: map-get($property-map, border);
+
+            &:after { //Toggle
+                background-color: map-get($property-map, toggle-color);
+            }
+
+            &:checked {
+                background-color: map-get($property-map, background-on);
+
+                &:after { //Toggle
+                    background-color: map-get($property-map, toggle-color-on);
+                }
+            }
+        }
+    }
+}
